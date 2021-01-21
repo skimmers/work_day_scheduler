@@ -3,16 +3,13 @@ $(document).ready(function() {
     //creating the date, got code from moment.js
     var today = moment().format('MMMM Do YYYY, h:mm:ss a');
     $("#currentDay").append(today);
-    //console.log(today);
 
     function timeColor() {
         //creating theHour
         var theHour = moment().hours();
-        //console.log(theHour);
 
         $(".timeBlock").each(function() {
             var hourNum = parseInt($(this).attr("id"));
-            //console.log(hourNum,theHour);
 
             //changing row color depending on time
             if(hourNum < theHour) {
@@ -30,15 +27,12 @@ $(document).ready(function() {
 
     //Save txt input into local storage
     $(".saveBtn").click(function() {
-        //console.log(this);
 
         var text = $(this).siblings(".storage").val();
         var time = $(this).parent().attr("id");
 
-        //console.log(text, time);
-
         localStorage.setItem(time,text);
-        //console.log(text);
+       
     });
 
     $("#9AM .storage").val(localStorage.getItem("9AM"));
