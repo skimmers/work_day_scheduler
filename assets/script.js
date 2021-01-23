@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
     //creating the date, got code from moment.js
     var today = moment().format('MMMM Do YYYY, h:mm:ss a');
@@ -8,14 +8,16 @@ $(document).ready(function() {
         //creating theHour
         var theHour = moment().hours();
 
-        $(".timeBlock").each(function() {
+        $(".timeBlock").each(function () {
             var hourNum = parseInt($(this).attr("id"));
 
             //changing row color depending on time
-            if(hourNum < theHour) {
+            if (hourNum < theHour) {
+                $(this).addClass("past");
+            } else if (hourNum === theHour) {
                 $(this).removeClass("past");
                 $(this).addClass("present");
-            } else{
+            } else {
                 $(this).removeClass("past");
                 $(this).removeClass("present");
                 $(this).addClass("future");
@@ -26,13 +28,13 @@ $(document).ready(function() {
     timeColor();
 
     //Save txt input into local storage
-    $(".saveBtn").click(function() {
+    $(".saveBtn").click(function () {
 
         var text = $(this).siblings(".storage").val();
         var time = $(this).parent().attr("id");
 
-        localStorage.setItem(time,text);
-       
+        localStorage.setItem(time, text);
+
     });
 
     $("#9AM .storage").val(localStorage.getItem("9AM"));
@@ -44,8 +46,8 @@ $(document).ready(function() {
     $("#3PM .storage").val(localStorage.getItem("3PM"));
     $("#4PM .storage").val(localStorage.getItem("4PM"));
     $("#5PM .storage").val(localStorage.getItem("5PM"));
-    
-    $(".btn-danger").click(function() {
-    $("textarea").val("");
+
+    $(".btn-danger").click(function () {
+        $("textarea").val("");
     });
 });
