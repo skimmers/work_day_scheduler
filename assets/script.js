@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     //creating the date, got code from moment.js
-    var today = moment().format('MMMM Do YYYY, h:mm:ss a');
+    var today = moment().format("MMMM Do YYYY, h:mm:ss a");
     $("#currentDay").append(today);
 
     function timeColor() {
@@ -26,6 +26,9 @@ $(document).ready(function () {
     }
 
     timeColor();
+
+    //this is checking the current time 
+    var interval = setInterval(timeColor, 15000);
 
     //Save txt input into local storage
     $(".saveBtn").click(function () {
