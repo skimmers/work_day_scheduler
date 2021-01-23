@@ -28,7 +28,7 @@ $(document).ready(function () {
     timeColor();
 
     //this is checking the current time 
-    var interval = setInterval(timeColor, 15000);
+    //var interval = setInterval(timeColor, 15000);
 
     //Save txt input into local storage
     $(".saveBtn").click(function () {
